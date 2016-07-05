@@ -1,0 +1,34 @@
+<%= form_for @plum do |f| %>
+  <% if @plum.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@plum.errors.count, "error") %> prohibited
+        this plum from being saved:
+      </h2>
+      <ul>
+        <% @plum.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<p>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :gender %><br>
+ <%= f.select :gender, [['male'], ['female']] %>
+</p>
+<p>
+   <%= f.label :image %>
+   <%= f.file_field :image %>
+</p>
+<p>
+	<%= f.label :address %>
+	<%= f.text_area :address %>
+</p>
+<p>
+	<%= f.submit %>
+</p>
+<% end %>

@@ -1,0 +1,29 @@
+<h1 align="center"> Listing Companies </h1>
+<%= link_to 'New Company', new_plum_path, remote: true %>
+
+<table style="width:100%">
+	<tr>
+		<th>Name</th>
+		<th>Gender</th>
+		<th>Image</th>
+		<th>Address</th>
+		
+	</tr>
+  <div id="plum-form"></div>
+
+	<% @plums.each do |plum| %>
+	<tr align="center">
+	<td><%= plum.name %></td>
+	<td><%= plum.gender %></td>
+	<td><%= image_tag plum.image.url(:small) %></td>
+	<td><%= plum.address %></td>
+	
+	<td><%= link_to 'Show', plum_path(plum) %></td>
+	<td><%= link_to 'Edit', edit_plum_path(plum), remote: true%></td>
+	<td><%= link_to 'Delete', plum_path(plum),
+						method: :delete,
+						data: { confirm: 'Are you sure ?'}, remote: true, :class => 'delete_plum' %></td> 
+	</tr>
+	<% end %>
+</table>
+<%= will_paginate @plums %>

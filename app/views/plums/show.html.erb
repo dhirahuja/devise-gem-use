@@ -1,0 +1,27 @@
+<h1> Details </h1>
+<p>
+	<strong>Name</strong>
+	<%= @plum.name %>
+</p>
+<p>
+	<strong>Gender</strong>
+	<%= @plum.gender %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @plum.image.url %>
+</p>
+<p>
+	<strong>Address</strong>
+	<%= @plum.address %>
+</p>
+<h2>Comments</h2>
+<%= render @plum.comments %>
+
+<h2>Add a comment </h2>
+<%= render 'comments/form' %>
+
+<%= link_to 'Edit', edit_plum_path(@plum) %> |
+<%= link_to 'Back', plums_path %>
+
+ 
