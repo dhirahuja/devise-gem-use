@@ -36,7 +36,7 @@ class PlumsController < ApplicationController
 		@plum.destroy
 		 
   respond_to do |format|
-      format.html { redirect_to plums_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
       format.js   { render :layout => false }
   end
